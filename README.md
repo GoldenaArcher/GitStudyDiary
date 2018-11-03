@@ -16,6 +16,7 @@ and this is the reason I started this diary to learn more about the git commands
 # Table of Contents
 - [General Standards and Guidelines](#General-Standards-and-Guidelines)
 	- [Most General](#Most-General)
+	- [Less General](#Less-General)
 - [Download](#Download)
 - [Git Commands](#Git-Commands)
 - [First Commit](#First-Commit)
@@ -90,6 +91,27 @@ Add the commit message here to tell others what changes you made in this commit.
 `git push`
 
 Push the commit(s) you made to your remote branch.
+
+### Less General <a name="Less-General">
+
+`gitk`
+
+I am not familar with gitk since I just learned this command. BTW, it seems create a workflow of the current project.
+
+`git config color.ui true`
+
+Display a more colorful message...? I did not see a lot of changes though, perhaps I'm using git bash on Windows, by default the color.ui is true.
+
+### Rebase
+
+#### Rebase Commits
+```
+# initiate a commit rebase
+$ git rebase -i
+```
+
+Based on the preferred option, changes the command, then do a regular push.
+
 
 ## First Commit <a name="First-Commit">
 
