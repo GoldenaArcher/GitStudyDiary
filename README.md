@@ -18,9 +18,10 @@ and this is the reason I started this diary to learn more about the git commands
 	- [Most General](#Most-General)
 	- [Less General](#Less-General)
 - [Download](#Download)
-- [Git Commands](#Git-Commands)
 - [First Commit](#First-Commit)
-- [Rebase Error](#Rebase-Error)
+- [Git Commands](#Git-Commands)
+- [Errors](#Errors)
+	- [Rebase Error](#Rebase-Error)
 
 ## General Standards and Guidelines<a name="General-Standards-and-Guidelines">
 
@@ -63,6 +64,37 @@ From [Git Guidelines and Best Practices](https://wiki.duraspace.org/display/fcre
 	Eclipse and Intellij can provide plug-in for Markdown. However, sometimes I don't want to open these IDEs just for editing Markdown since it takes 
 	a while to start the project inside the IDEs. I also found a great plug-in for Notepad++ on GitHub, [MarkdownViewerPlusPlus](https://github.com/nea/MarkdownViewerPlusPlus).
 
+## First Commit <a name="First-Commit">
+
+After creating a project on the GitHub, if no README.md file is created, GitHub kinds of provide a quick tutorials. I personally found this way has less code. 
+Also, there is quite some repeated code here, since `git add` and `git commit` is a ___must___ in changing any file in the workspace. Without commiting, git will 
+not allow you to checkout to another branch.
+
+```
+# clone the repo at upper-level directory
+# if directory is empty, a warning message will appear
+$ git clone git@github.com:GoldenaArcher/GitStudyDiary.git
+Cloning into 'GitStudyDiary'...
+warning: You appear to have cloned an empty repository.
+# create README.md file
+echo "# GitStudyDiary" >> README.md
+git add README.md
+git commit -m "first commit"
+git push
+```
+
+Or follows the guide provided by GitHub with some extra lines. `--allow-unrelated-histories` sometimes is necessary, otherwise it could provoke error message 
+`fatal: refusing to merge unrelated histories`.
+
+```
+echo "# GitStudyDiary" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:GoldenaArcher/GitStudyDiary.git
+git push -u origin master --allow-unrelated-histories
+```
+	
 ## Git Commands <a name="Git-Commands">	
 
 ### Most General <a name="Most-General">
@@ -98,6 +130,8 @@ Push the commit(s) you made to your remote branch.
 
 I am not familar with gitk since I just learned this command. BTW, it seems create a workflow of the current project.
 
+![gitk image](https://github.com/GoldenaArcher/GitStudyDiary/blob/master/img/Less_General/gitk.PNG)
+
 `git config color.ui true`
 
 Display a more colorful message...? I did not see a lot of changes though, perhaps I'm using git bash on Windows, by default the color.ui is true.
@@ -110,49 +144,44 @@ Display a more colorful message...? I did not see a lot of changes though, perha
 $ git rebase -i
 ```
 
+The commit history will display in the command line. All the commands are displayed on the screen. To keep work tree clean, squash and fixup probably 
+are most useful commands.
+
+![rebase commit](https://github.com/GoldenaArcher/GitStudyDiary/blob/master/img/Rebase/rebase_commit.PNG)
+
+After `:wq!`, which writes the commands into file, 
+
 Based on the preferred option, changes the command, then do a regular push.
 
-
-## First Commit <a name="First-Commit">
-
-After creating a project on the GitHub, if no README.md file is created, GitHub kinds of provide a quick tutorials. I personally found this way has less code. 
-Also, there is quite some repeated code here, since `git add` and `git commit` is a ___must___ in changing any file in the workspace. Without commiting, git will 
-not allow you to checkout to another branch.
+I also used `edit` while doing rebase rather than using `squash` and `fixup`, the estra message at the end of line is `(master|REBASE-i 1/1)`, and the 
+messages displayed are:
 
 ```
-# clone the repo at upper-level directory
-# if directory is empty, a warning message will appear
-$ git clone git@github.com:GoldenaArcher/GitStudyDiary.git
-Cloning into 'GitStudyDiary'...
-warning: You appear to have cloned an empty repository.
-# create README.md file
-echo "# GitStudyDiary" >> README.md
-git add README.md
-git commit -m "first commit"
-git push
-```
+$ git rebase -i
+Stopped at eafaf54...  reformat, move 1st commit before git command
+You can amend the commit now, with
 
-Or follows the guide provided by GitHub with some extra lines. `--allow-unrelated-histories` sometimes is necessary, otherwise it could provoke error message 
-`fatal: refusing to merge unrelated histories`.
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
 
 ```
-echo "# GitStudyDiary" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin git@github.com:GoldenaArcher/GitStudyDiary.git
-git push -u origin master --allow-unrelated-histories
-```
 
-## Rebase Error <a name="Rebase-Error">
+Once I use `git commit --amend` to fix my commit message, and use `git rebase --continue` to notify git that I'm done with rebasing, the message 
+`(master|REBASE-i 1/1)` is also gone.
 
-### Method 1, solved the problem, but I do NOT prefer it.
+## Errors <a name="Errors">
+### Rebase Error <a name="Rebase-Error">
+
+#### Method 1, solved the problem, but I do NOT prefer it.
 
 As mentioned, I had this problem, my not preferred way to do that is to checkout to the master branch, and merge my working branch and then push it to the master 
 branch. It still needs to create a PR, so I am assuming that I am not directly working on the master branch. Then I deleted my branch, created a new branch. I feel 
 there is some other better way to resolfe the problem. 
 
-### Method 2, not tested, but I believe it will work.
+#### Method 2, not tested, but I believe it will work.
 
 I read on the StackOverflow, some people replied that this issues often happened on the forked branches. Since someone might done some changes and it's not on others 
 local branch. They suggested to delete the local files and clone it again... Not sure it's best practice, but definitely solve the problem.
