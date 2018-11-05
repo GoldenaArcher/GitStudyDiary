@@ -15,11 +15,12 @@ and this is the reason I started this diary to learn more about the git commands
 
 # Table of Contents
 - [General Standards and Guidelines](#General-Standards-and-Guidelines)
-	- [Most General](#Most-General)
-	- [Less General](#Less-General)
 - [Download](#Download)
 - [First Commit](#First-Commit)
 - [Git Commands](#Git-Commands)
+	- [Most General](#Most-General)
+		- [Merge Conflicts](#Merge-Conflicts)
+	- [Less General](#Less-General)
 - [Errors](#Errors)
 	- [Rebase Error](#Rebase-Error)
 
@@ -131,7 +132,7 @@ Push the commit(s) you made to your remote branch. Also works as `git push origi
 
 Display message regarding changed/modified files, and current branch's status.
 
-#### Merge Conflits
+#### Merge Conflicts <a name="Merge-Conflicts">
 
 Sometimes, when pulling changes from master branch, other people might have already modified some files beforehand. Thus, any changes on already modified file can 
 result a merge conflits. Listed code can resolve this problem.
