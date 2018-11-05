@@ -118,11 +118,34 @@ The latter one adds all changed file into next commit.
 
 `git commit -m "your message here"`
 
-Add the commit message here to tell others what changes you made in this commit.
+Add the commit message here to tell others what changes you made in this commit. Also, use `git commit –m “closes #999”` can associate current commit with task 
+#999.
 
 `git push`
 
-Push the commit(s) you made to your remote branch.
+Push the commit(s) you made to your remote branch. Also works as `git push origin [branch_name]`
+
+`git status`
+
+![gitk status](https://github.com/GoldenaArcher/GitStudyDiary/blob/master/img/Git_Command/General/Status.png)
+
+Display message regarding changed/modified files, and current branch's status.
+
+#### Merge Conflits
+
+Sometimes, when pulling changes from master branch, other people might have already modified some files beforehand. Thus, any changes on already modified file can 
+result a merge conflits. Listed code can resolve this problem.
+
+```
+# find files with merge conflicts on your local repo
+git status
+# edit files to resolve the conflicts between
+# <<<<<<< HEAD and >>>>>>> BRANCH-NAME
+# re build and test
+git add .
+git commit –m “resolved merge conflict”
+git push origin [branchname]
+```
 
 ### Less General <a name="Less-General">
 
@@ -130,7 +153,7 @@ Push the commit(s) you made to your remote branch.
 
 I am not familar with gitk since I just learned this command. BTW, it seems create a workflow of the current project.
 
-![gitk image](https://github.com/GoldenaArcher/GitStudyDiary/blob/master/img/Less_General/gitk.PNG)
+![gitk image](https://github.com/GoldenaArcher/GitStudyDiary/blob/master/img/Git_Command/Less_General/gitk.PNG)
 
 `git config color.ui true`
 
@@ -179,7 +202,7 @@ Once I use `git commit --amend` to fix my commit message, and use `git rebase --
 
 As mentioned, I had this problem, my not preferred way to do that is to checkout to the master branch, and merge my working branch and then push it to the master 
 branch. It still needs to create a PR, so I am assuming that I am not directly working on the master branch. Then I deleted my branch, created a new branch. I feel 
-there is some other better way to resolfe the problem. 
+there is some other better way to resolve the problem. 
 
 #### Method 2, not tested, but I believe it will work.
 
