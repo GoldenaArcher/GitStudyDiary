@@ -127,7 +127,7 @@ Push the commit(s) you made to your remote branch. Also works as `git push origi
 
 `git status`
 
-![gitk status](https://github.com/GoldenaArcher/GitStudyDiary/blob/master/img/Git_Command/General/Status.png)
+![git status](https://github.com/GoldenaArcher/GitStudyDiary/blob/master/img/Git_Command/General/Status.PNG)
 
 Display message regarding changed/modified files, and current branch's status.
 
