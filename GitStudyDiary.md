@@ -1,4 +1,4 @@
-# GitStudyDiary
+# Git Study Diary
 
 I first used GitHub back to 2016 when I was an intern in a small compony. My boss told me that in order to not mess up all the work others 
 are doing, we, in particular me, had to use version control tools, such as GitHub. I learned the most basic commands that everyone has to 
@@ -21,6 +21,8 @@ and this is the reason I started this diary to learn more about the git commands
 	- [Most General](#Most-General)
 		- [Merge Conflicts](#Merge-Conflicts)
 	- [Less General](#Less-General)
+		- [Rebase Commits](#Rebase-Commits)
+		- [Origin](#Origin)
 - [Errors](#Errors)
 	- [Rebase Error](#Rebase-Error)
 
@@ -162,7 +164,7 @@ Display a more colorful message...? I did not see a lot of changes though, perha
 
 ### Rebase
 
-#### Rebase Commits
+#### Rebase Commits <a name="Rebase-Commits">
 ```
 # initiate a commit rebase
 $ git rebase -i
@@ -195,6 +197,39 @@ Once you are satisfied with your changes, run
 
 Once I use `git commit --amend` to fix my commit message, and use `git rebase --continue` to notify git that I'm done with rebasing, the message 
 `(master|REBASE-i 1/1)` is also gone.
+
+
+#### Origin <a name="Origin">
+
+I just change the repo name from `GitStudyDiary` to `StudyDiary` since I am planning to put more of my study notes here. Hence, I was facing an issue which is to 
+change the repository's name causing the url of the repository. The listed command can reset the url for the current repo.
+
+`git remote set-url origin https://github.com/GoldenaArcher/StudyDiary`
+
+After that, the origin's url will change.
+
+Also, there is some more useful git commands relating to `git origin`.
+
+Displaying current origin's url:
+
+```
+$ git config --get remote.origin.url
+https://github.com/GoldenaArcher/StudyDiary
+```
+
+Show some more general information regarding current origin:
+```
+* remote origin
+  Fetch URL: https://github.com/GoldenaArcher/StudyDiary
+  Push  URL: https://github.com/GoldenaArcher/StudyDiary
+  HEAD branch: master
+  Remote branch:
+    master tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+```
 
 ## Errors <a name="Errors">
 ### Rebase Error <a name="Rebase-Error">
