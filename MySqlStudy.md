@@ -272,7 +272,7 @@ However, sql commands must end with semicolon `;`.
 - Integer Type
 
 	| Data Type | Data Range | Data Size |
-	| :-------: | :--------:| :--------: |
+	| :-------: | :--------: | :-------: |
 	| __TINYINT__ | signed: -128 - 127(-2<sup>7</sup> - 2<sup>7</sup>-1)<br>unsigned: 0 - 255 (0 - 2<sup>8</sup>-1) | 1 byte|
 	| __SMALLINT__ | signed: -2<sup>15</sup> - 2<sup>15</sup>-1<br>unsigned: 0 - 2<sup>16</sup>-1 | 2 bytes |
 	| __MEDIUMINT__ | signed: -2<sup>23</sup> - 2<sup>23</sup>-1<br>unsigned: 0 - 2<sup>24</sup>-1 | 3 bytes |
@@ -282,5 +282,5 @@ However, sql commands must end with semicolon `;`.
 - Floating Number
 
 	| Data Type | Data Range | Example |
-	| :-------: | : ------ : | :-----: |
+	| :-------: | :--------: | :-----: |
 	| __Float__(_M_, _D_) | 4 bytes<br>-3.402823466E+38 to -1.175494351E-38<br>and<br>1.175494351E-38 to 3.402823466E+38 | FLOAT(7,4) will look like -999.9999 in DB |
