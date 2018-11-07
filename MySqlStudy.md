@@ -99,10 +99,13 @@ Here are some commonly used parameters for prompt:
 	$ mysql -uroot -proot 
 	$ MariaDB [(none)]>  prompt mysql >
 	PROMPT set to 'mysql >'
+	
 	$ mysql >prompt \u@\h \d> 
 	PROMPT set to '\u@\h \d> '
+	
 	$ root@localhost (none)> use mysql;
 	Database changed
+	
 	$ root@localhost mysql> 
 	```
 
@@ -280,3 +283,4 @@ However, sql commands must end with semicolon `;`.
 
 	| Data Type | Data Range | Example |
 	| :-------: | : ------ : | :-----: |
+	| __Float__(_M_, _D_) | 4 bytes<br>-3.402823466E+38 to -1.175494351E-38<br>and<br>1.175494351E-38 to 3.402823466E+38 | FLOAT(7,4) will look like -999.9999 in DB |
