@@ -284,3 +284,6 @@ However, sql commands must end with semicolon `;`.
 	| Data Type | Data Range | Example |
 	| :-------: | :--------: | :-----: |
 	| __Float__(_M_, _D_) | 4 bytes<br>-3.402823466E+38 to -1.175494351E-38<br>and<br>1.175494351E-38 to 3.402823466E+38 | FLOAT(7,4) will look like -999.9999 in DB |
+	| __DOUBLE__(_M_, _D_) | 8 bytes<br>-1.7976931348623157E+308 to -2.2250738585072014E-308,<br>0, and<br>2.2250738585072014E-308 to 1.7976931348623157E+308 | DOUBLE(7,4) will look like -999.9999 in DB<br>___M___ represents values can be stored with up to ___M___ digits in total,<br>___D___ represents ___D___ digits may be after the decimal point |
+	
+
